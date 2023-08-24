@@ -12,6 +12,13 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: stable
+            name: stable-gatekeeper-v3
+            port:
+              name: http
+      - path: /one
+        pathType: Prefix
+        backend:
+          service:
+            name: stable-one-v3
             port:
               name: http

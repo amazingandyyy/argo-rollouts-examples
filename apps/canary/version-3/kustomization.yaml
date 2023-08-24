@@ -4,8 +4,9 @@ kind: Kustomization
 nameSuffix: -v3
 
 resources:
-  - ./gatekeeper
   - ./ingress.yaml
+  - ./gatekeeper
+  - one
 
 images:
   - name: argoproj/rollouts-demo
