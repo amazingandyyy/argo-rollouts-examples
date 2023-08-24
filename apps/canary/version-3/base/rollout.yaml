@@ -44,7 +44,6 @@ spec:
       - setWeight: 20
       - setCanaryScale: # scale replicaset to 100% with only 20% traffic
           weight: 100
-      - pause: {}
       - setWeight: 40
       - pause: {duration: 10}
       - setWeight: 60
