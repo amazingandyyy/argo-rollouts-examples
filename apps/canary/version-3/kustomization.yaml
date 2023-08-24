@@ -5,8 +5,9 @@ nameSuffix: -v3
 
 resources:
   - ./ingress.yaml
-  - ./gatekeeper
+  - gatekeeper
   - one
+  - two
 
 images:
   - name: argoproj/rollouts-demo
