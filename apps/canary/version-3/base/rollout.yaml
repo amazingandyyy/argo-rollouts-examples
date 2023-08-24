@@ -47,7 +47,7 @@ spec:
       maxUnavailable: 0
       trafficRouting:
         nginx:
-          stableIngress: backend
+          stableIngress: backend-v3
       steps:
       - setWeight: 20
       - setCanaryScale: # scale replicaset to 100% with only 20% traffic
