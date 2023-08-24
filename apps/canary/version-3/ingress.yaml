@@ -8,31 +8,31 @@ spec:
   - host: argo-rollouts-demo.dev.argoproj.io
     http:
       paths:
-      - path: /gatekeeper
-        pathType: Prefix
-        backend:
-          service:
-            name: stable-gatekeeper-v3
-            port:
-              name: http
-      - path: /one
+#      - path: /gatekeeper
+#        pathType: Prefix
+#        backend:
+#          service:
+#            name: stable-gatekeeper-v3
+#            port:
+#              name: http
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: stable-one-v3
             port:
               name: http
-      - path: /two
-        pathType: Prefix
-        backend:
-          service:
-            name: stable-two-v3
-            port:
-              name: http
-      - path: /three
-        pathType: Prefix
-        backend:
-          service:
-            name: stable-three-v3
-            port:
-              name: http
+#      - path: /two
+#        pathType: Prefix
+#        backend:
+#          service:
+#            name: stable-two-v3
+#            port:
+#              name: http
+#      - path: /three
+#        pathType: Prefix
+#        backend:
+#          service:
+#            name: stable-three-v3
+#            port:
+#              name: http

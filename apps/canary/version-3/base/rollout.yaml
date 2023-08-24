@@ -29,14 +29,6 @@ spec:
           requests:
             memory: 32Mi
             cpu: 5m
-        startupProbe: # sleep between 5 and 10 seconds
-          exec:
-            command:
-              - bash
-              - -c
-              - |-
-                sleep $(( (RANDOM % 5) + 5 ))
-          timeoutSeconds: 10
   strategy:
     canary:
       canaryService: preview
