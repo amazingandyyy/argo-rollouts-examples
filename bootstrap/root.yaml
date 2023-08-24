@@ -21,7 +21,7 @@ spec:
   project: default
   source:
     path: projects
-    repoURL: https://github.com/yohanb/argo-rollouts-examples.git
+    repoURL: https://github.com/amazingandyyy/argo-rollouts-examples.git
   syncPolicy:
     automated:
       allowEmpty: true

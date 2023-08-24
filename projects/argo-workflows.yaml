@@ -59,7 +59,7 @@ metadata:
 spec:
   source:
     path: apps/argo-workflows-templates
-    repoURL: https://github.com/yohanb/argo-rollouts-examples.git
+    repoURL: https://github.com/amazingandyyy/argo-rollouts-examples.git
     targetRevision: HEAD
   project: argo-workflows
   destination:
