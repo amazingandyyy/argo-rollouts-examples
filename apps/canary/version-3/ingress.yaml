@@ -29,3 +29,10 @@ spec:
             name: stable-two-v3
             port:
               name: http
+      - path: /three
+        pathType: Prefix
+        backend:
+          service:
+            name: stable-three-v3
+            port:
+              name: http
