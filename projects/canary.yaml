@@ -37,7 +37,7 @@ spec:
         directories:
           - path: apps/canary/*
         repoURL: https://github.com/amazingandyyy/argo-rollouts-examples.git
-        revision: HEAD
+        revision: hook-succeeded-policy
   syncPolicy: {}
   template:
     metadata:
@@ -51,7 +51,7 @@ spec:
       source:
         path: '{{ path }}'
         repoURL: https://github.com/amazingandyyy/argo-rollouts-examples.git
-        targetRevision: HEAD
+        targetRevision: hook-succeeded-policy
       destination:
         namespace: canary
         server: https://kubernetes.default.svc
