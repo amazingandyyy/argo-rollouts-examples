@@ -1,11 +1,15 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: job-002
+  name: job-005
+  annotations:
+    argocd.argoproj.io/sync-wave: '90'
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     metadata:
-      name: job-002
+      name: job-005
     spec:
       containers:
         - name: test
