@@ -8,10 +8,13 @@
   path: /spec/strategy/canary/canaryService
   value: preview-gatekeeper-v3
 - op: replace
-  path: /spec/strategy/canary/steps
+  path: /spec/strategy/canary
   value:
-    - setWeight: 90
-    - pause: {}
+    maxSurge: 25%
+    maxUnavailable: 0
+    steps:
+      - setWeight: 90
+      - pause: {}
 - op: replace
   path: /spec/template/metadata/labels/app.kubernetes.io~1name
   value: gatekeeper
