@@ -1,11 +1,11 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: job-001
+  name: job-002
 spec:
   template:
     metadata:
-      name: job-001
+      name: job-002
     spec:
       containers:
         - name: test
