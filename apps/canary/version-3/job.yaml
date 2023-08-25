@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: job-014
+  name: job-015
   annotations:
     argocd.argoproj.io/hook: Sync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
@@ -9,7 +9,7 @@ metadata:
 spec:
   template:
     metadata:
-      name: job-014
+      name: job-015
     spec:
       containers:
         - name: test
