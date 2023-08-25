@@ -41,12 +41,5 @@ spec:
         nginx:
           stableIngress: backend-v3
       steps:
-      - setWeight: 20
-      - setCanaryScale: # scale replicaset to 100% with only 20% traffic
-          weight: 100
-      - setWeight: 40
-      - pause: {duration: 10}
-      - setWeight: 60
-      - pause: {duration: 10}
-      - setWeight: 80
-      - pause: {duration: 10}
+      - setWeight: 10
+      - setWeight: 90
