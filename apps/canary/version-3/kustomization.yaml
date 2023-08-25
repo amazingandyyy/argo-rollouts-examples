@@ -9,6 +9,7 @@ resources:
   - one
   - two
   - three
+  - job.yaml
 
 images:
   - name: argoproj/rollouts-demo

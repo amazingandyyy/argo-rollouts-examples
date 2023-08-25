@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-001
+spec:
+  template:
+    metadata:
+      name: job-001
+    spec:
+      containers:
+        - name: test
+          image: alpine:latest
+          command:
+            - "bin/sh"
+            - "-c"
+            - "for i in 1 2 3 4 5 6 7 8 9 ; do echo $i ; done"
+      restartPolicy: Never
