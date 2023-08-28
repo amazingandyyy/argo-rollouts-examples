@@ -1,14 +1,14 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: job-021
+  name: job-022
   annotations:
-    argocd.argoproj.io/sync-options: Prune=false
+    argocd.argoproj.io/sync-options: Prune=true
     argocd.argoproj.io/sync-wave: '90'
 spec:
   template:
     metadata:
-      name: job-021
+      name: job-022
     spec:
       containers:
         - name: test
