@@ -1,16 +1,16 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: job-026
+  name: job-027
   annotations:
 #    argocd.argoproj.io/sync-options: Prune=true
-    argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+#    argocd.argoproj.io/hook: Sync
+#    argocd.argoproj.io/hook-delete-policy: HookSucceeded
     argocd.argoproj.io/sync-wave: '90'
 spec:
   template:
     metadata:
-      name: job-026
+      name: job-027
     spec:
       containers:
         - name: test
