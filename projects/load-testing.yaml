@@ -1,0 +1,78 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  annotations:
+    argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
+    argocd.argoproj.io/sync-options: PruneLast=true
+    argocd.argoproj.io/sync-wave: "-2"
+  creationTimestamp: null
+  name: load-testing
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  description: load-testing project
+  destinations:
+    - namespace: '*'
+      server: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  sourceRepos:
+    - '*'
+status: {}
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: locust-app
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  destination:
+    name: in-cluster
+    namespace: load-testing
+  project: load-testing
+  source:
+    chart: locust
+    repoURL: "https://charts.deliveryhero.io/"
+    targetRevision: 0.30.0
+    helm:
+      values: |-
+        loadtest:
+          locust_host: http://stable-one-v3.canary.svc.cluster.local
+          locust_locustfile_configmap: api-locustfile
+        master:
+          args:
+            -  --class-picker
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: locust-config
+  namespace: argocd
+spec:
+  source:
+    path: apps/locust
+    repoURL: https://github.com/amazingandyyy/argo-rollouts-examples.git
+    targetRevision: HEAD
+  project: load-testing
+  destination:
+    namespace: load-testing
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
