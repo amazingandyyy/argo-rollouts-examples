@@ -6,7 +6,7 @@
 
 ## Bootstrap
 1. `EXPORT GIT_TOKEN=<your git token>`
-2. `export GIT_REPO=https://github.com/ybelval/argo-rollouts-examples`
+2. `export GIT_REPO=https://github.com/amazingandyyy/argo-rollouts-examples`
 3. `argocd-autopilot repo bootstrap`
 
 ## Steps to reproduce

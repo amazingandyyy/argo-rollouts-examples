@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: v1-app-gate
-        image: ybelval/rollouts-demo:green
+        image: amazingandyyy/rollouts-demo:green
         imagePullPolicy: Never
         ports:
         - name: http
@@ -67,7 +67,7 @@ spec:
     spec:
       containers:
         - name: v1-app
-          image: ybelval/rollouts-demo:green
+          image: amazingandyyy/rollouts-demo:green
           imagePullPolicy: Never
           ports:
             - name: http
