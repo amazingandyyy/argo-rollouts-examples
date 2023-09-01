@@ -1,12 +1,21 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: locust
+
 resources:
-  - configmap.yaml
+  - ingress.yaml
+  - newrelic-ini-sealed-secret.yaml
 
 helmCharts:
   - name: locust
     repo: https://charts.deliveryhero.io/
     version: 0.30.0
     releaseName: locust
-    namespace: locust
+    valuesFile: values.yaml
+
+configMapGenerator:
+  - name: api-locustfile
+    behavior: create
+    files:
+      - main.py
