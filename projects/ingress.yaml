@@ -6,47 +6,37 @@ metadata:
     argocd.argoproj.io/sync-options: PruneLast=true
     argocd.argoproj.io/sync-wave: "-2"
   creationTimestamp: null
-  name: ingress
+  name: nginx
   namespace: argocd
 spec:
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
-  description: ingress project
+    - group: '*'
+      kind: '*'
+  description: nginx project
   destinations:
-  - namespace: '*'
-    server: '*'
+    - namespace: '*'
+      server: '*'
   namespaceResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: '*'
+      kind: '*'
   sourceRepos:
-  - '*'
+    - '*'
 status: {}
-
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ingress-nginx
+  name: nginx
   namespace: argocd
 spec:
-  project: default
   source:
-    chart: ingress-nginx
-    repoURL: https://kubernetes.github.io/ingress-nginx
-    targetRevision: 4.7.1
-    helm:
-      releaseName: ingress-nginx
-#      valuesObject:
-#        controller:
-#          service:
-#            internal:
-#              enabled: true
-#              annotations:
-#                ingress-nginx-internal: "true"
+    path: apps/nginx
+    repoURL: https://github.com/amazingandyyy/argo-rollouts-examples.git
+    targetRevision: HEAD
+  project: nginx
   destination:
-    server: "https://kubernetes.default.svc"
-    namespace: ingress-nginx
+    namespace: nginx-ingress
+    server: https://kubernetes.default.svc
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
