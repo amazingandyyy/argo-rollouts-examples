@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: v-proto
-        image: argoproj/rollouts-demo:blue
+        image: argoproj/rollouts-demo:green
         imagePullPolicy: Never
         ports:
         - name: http
@@ -81,7 +81,7 @@ spec:
     spec:
       containers:
         - name: v-proto-other-1
-          image: argoproj/rollouts-demo:blue
+          image: argoproj/rollouts-demo:green
           imagePullPolicy: Never
           ports:
             - name: http
