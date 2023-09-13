@@ -1,46 +1,46 @@
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  annotations:
-    argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
-    argocd.argoproj.io/sync-options: PruneLast=true
-    argocd.argoproj.io/sync-wave: "-2"
-  creationTimestamp: null
-  name: load-testing
-  namespace: argocd
-spec:
-  clusterResourceWhitelist:
-    - group: '*'
-      kind: '*'
-  description: load-testing project
-  destinations:
-    - namespace: '*'
-      server: '*'
-  namespaceResourceWhitelist:
-    - group: '*'
-      kind: '*'
-  sourceRepos:
-    - '*'
-status: {}
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: locust
-  namespace: argocd
-spec:
-  source:
-    path: apps/locust
-    repoURL: https://github.com/amazingandyyy/argo-rollouts-examples.git
-    targetRevision: HEAD
-  project: load-testing
-  destination:
-    namespace: locust
-    server: https://kubernetes.default.svc
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-    automated:
-      allowEmpty: true
-      prune: true
-      selfHeal: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: AppProject
+# metadata:
+#   annotations:
+#     argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
+#     argocd.argoproj.io/sync-options: PruneLast=true
+#     argocd.argoproj.io/sync-wave: "-2"
+#   creationTimestamp: null
+#   name: load-testing
+#   namespace: argocd
+# spec:
+#   clusterResourceWhitelist:
+#     - group: '*'
+#       kind: '*'
+#   description: load-testing project
+#   destinations:
+#     - namespace: '*'
+#       server: '*'
+#   namespaceResourceWhitelist:
+#     - group: '*'
+#       kind: '*'
+#   sourceRepos:
+#     - '*'
+# status: {}
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: locust
+#   namespace: argocd
+# spec:
+#   source:
+#     path: apps/locust
+#     repoURL: https://github.com/amazingandyyy/argo-rollouts-examples.git
+#     targetRevision: HEAD
+#   project: load-testing
+#   destination:
+#     namespace: locust
+#     server: https://kubernetes.default.svc
+#   syncPolicy:
+#     syncOptions:
+#       - CreateNamespace=true
+#     automated:
+#       allowEmpty: true
+#       prune: true
+#       selfHeal: true

@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: canary-demo.gatekeeper.argoproj.io
+  - host: canary-gatekeeper.argoproj.io
     http:
       paths:
       - path: /
@@ -15,33 +15,33 @@ spec:
             name: stable-gatekeeper-v3
             port:
               name: http
-  - host: canary-demo.one.argoproj.io
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: stable-one-v3
-            port:
-              name: http
-  - host: canary-demo.two.argoproj.io
-    http:
-      paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: stable-two-v3
-              port:
-                name: http
-  - host: canary-demo.three.argoproj.io
-    http:
-      paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: stable-three-v3
-              port:
-                name: http
+  # - host: canary-one.argoproj.io
+  #   http:
+  #     paths:
+  #     - path: /
+  #       pathType: Prefix
+  #       backend:
+  #         service:
+  #           name: stable-one-v3
+  #           port:
+  #             name: http
+  # - host: canary-two.argoproj.io
+  #   http:
+  #     paths:
+  #       - path: /
+  #         pathType: Prefix
+  #         backend:
+  #           service:
+  #             name: stable-two-v3
+  #             port:
+  #               name: http
+  # - host: canary-three.argoproj.io
+  #   http:
+  #     paths:
+  #       - path: /
+  #         pathType: Prefix
+  #         backend:
+  #           service:
+  #             name: stable-three-v3
+  #             port:
+  #               name: http
