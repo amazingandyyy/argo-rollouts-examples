@@ -1,2 +1,3 @@
 .idea
 apps/locust/newrelic-ini-secret.yaml
+.DS_Store
